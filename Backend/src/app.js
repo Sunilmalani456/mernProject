@@ -46,6 +46,10 @@ import healthRouter from "./routes/healthcheck.routes.js";
 //routes declaration
 // http://localhost:8000/api/v1/users/register
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the backend server");
+});
+
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/video", videoRouter);
 app.use("/api/v1/like", likeRouter);
