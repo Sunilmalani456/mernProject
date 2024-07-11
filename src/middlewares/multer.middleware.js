@@ -1,19 +1,7 @@
-// import multer from "multer";
 import multer from "multer";
 import fs from "fs";
 import path from "path";
-import os from "os"; // Import the os module
-
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "./public/temp");
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.originalname);
-//   },
-// });
-// export const upload = multer({ storage });
-
+import os from "os";
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     // Use the system's temporary directory
@@ -35,8 +23,11 @@ const storage = multer.diskStorage({
     // const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
     cb(null, file.originalname); // Use the original filename
   },
+  // destination: function (req, file, cb) {
+  //   cb(null, "./public/temp");
+  // },
+  // filename: function (req, file, cb) {
+  //   cb(null, file.originalname);
+  // },
 });
-
-const upload = multer({ storage: storage });
-
-export default upload;
+export const upload = multer({ storage });
